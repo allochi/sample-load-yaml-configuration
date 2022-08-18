@@ -8,22 +8,28 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
-type Config struct {
+var Config = struct {
 	Database string `yml:"database"`
+}{
+	Database: "default value",
 }
 
-func main() {
+func init() {
 	data, err := ioutil.ReadFile("config.yml")
 	if err != nil {
 		log.Fatalln(err)
 	}
 
-	var config Config
-	err = yaml.Unmarshal([]byte(data), &config)
+	err = yaml.Unmarshal([]byte(data), &Config)
 	if err != nil {
 		log.Fatalf("error: %v", err)
 	}
+}
 
-	pp.Println(config)
+func main() {
+	SomeService()
+}
 
+func SomeService() {
+	pp.Println(Config.Database)
 }

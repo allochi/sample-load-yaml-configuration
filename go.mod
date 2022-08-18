@@ -1,4 +1,4 @@
-module github.com/allochi/environment
+module github.com/allochi/sample-load-yaml-configuration
 
 go 1.19
 
