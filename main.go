@@ -9,10 +9,10 @@ import (
 )
 
 var Config = struct {
-	Database string `yml:"database"`
-}{
-	Database: "default value",
-}
+	Database struct {
+		URL string
+	}
+}{}
 
 func init() {
 	data, err := ioutil.ReadFile("config.yml")
