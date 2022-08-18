@@ -1,0 +1,1 @@
+database: "postgresql://some_user:some_password@localhost:5432/some_database"
